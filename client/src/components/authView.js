@@ -95,8 +95,10 @@ export const SignUpView = () => {
 
   let formContainerClass = window.innerWidth > 600 ? 'formContainer formContainerPC' : 'formContainer';
   return (
+    <main>
+    <div className='none' ref={loaderRef}><img src={loader}  alt='Loader gif' /></div>
     <section className={formContainerClass}>
-      <div className='none' ref={loaderRef}><img src={loader}  alt='Loader gif' /></div>
+      
       <div className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></div>
 
       <form onSubmit={handleSubmit}>
@@ -147,7 +149,8 @@ export const SignUpView = () => {
         </div>
 
       <p className='gotAccount centerText'>Already have an account?<button><NavLink to='/Login'>Login</NavLink></button></p>
-    </section>    
+    </section> 
+    </main>
 )
 }
 

@@ -131,7 +131,8 @@ export const GlobalStyles = createGlobalStyle`
 		display: flex;
 		justify-content: center;
 		align-items: center;
-    background: teal;
+		background: orange;
+		z-index: 5;
 	}
 	.loader img {
 		height: 40vh;
