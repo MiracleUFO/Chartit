@@ -1,10 +1,12 @@
-import {NavLink} from 'react-router-dom';
-
 export const Home = () => {
   return (
-    <div>
-      <button><NavLink to='/SignUp'>Sign Up</NavLink></button>
-      <button><NavLink to='/Login'>Login</NavLink></button>
-    </div>
+    <main>
+      <section>
+        <div>
+          <h1>Let's Chartit.</h1>
+          <img alt='' />
+        </div>
+      </section>
+    </main>
   )
 }

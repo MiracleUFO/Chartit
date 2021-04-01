@@ -99,7 +99,7 @@ export const SignUpView = () => {
     <div className='none' ref={loaderRef}><img src={loader}  alt='Loader gif' /></div>
     <section className={formContainerClass}>
       
-      <div className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></div>
+      <NavLink to='/' className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></NavLink>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -197,7 +197,7 @@ export const LoginView = () => {
   let formContainerClass = window.innerWidth > 600 ? 'formContainer formContainerPC' : 'formContainer';
   return (
     <section className={formContainerClass}>
-      <div className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></div>
+      <NavLink to='/' className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></NavLink>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='loginEmail'>Email:</label>
@@ -214,7 +214,7 @@ export const LoginView = () => {
 
       <div>
         <p className='gotAccount centerText'>Don't have an account?<button><NavLink to='/SignUp'>Sign up</NavLink></button></p>
-        <p className='centerText'>Forgotten password?</p>
+        <NavLink to='#'><p className='centerText'>Forgotten password?</p></NavLink>
       </div>
     </section>  
   )

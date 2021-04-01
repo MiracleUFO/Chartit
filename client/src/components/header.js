@@ -1,15 +1,17 @@
 import {NavLink} from 'react-router-dom';
+import icon from '../imgs/icon.png';
+import switchOn from '../imgs/switchOn.png';
+import switchOff from '../imgs/switchOff.png';
 
 export const Header = (props) => {
-  //let classes = document.URL.includes('SignUp') ||  document.URL.includes('Login') ? 'none' : '';
-
+let switchIcon = props.theme === 'light' ? switchOff : switchOn;
   return (
-    <header /*className={classes}*/ id='header'>
-      <NavLink to='/'><h1 id='logo'>ChartIt</h1></NavLink>
-      <svg alt='Click to toggle mode'onClick={props.themeToggler} >
-        <circle cx="100" cy="50" r="1em" strokeWidth="2"  id='crescent'/>
-        <circle cx="120" cy="50" r="0.95em" strokeWidth="2"  id='circle'/>
-      </svg>
-    </header>
+      <nav id='header'>
+        <NavLink to='/' className='iconContainer'><img src={icon} alt='Chartit icon' className='icon' /></NavLink>
+        <div className='flex buttonDiv'>
+          <NavLink to='/SignUp'><button>Sign up</button></NavLink>
+          <img src={switchIcon} alt='' onClick={props.themeToggler} className='switchIcon' />
+        </div>
+      </nav> 
   )
 }

@@ -12,46 +12,77 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	a {
 		text-decoration: none;
+		color: ${({theme}) => theme.text};
 	}
 	.none {
 		display: none;
 	}
+	.flex {
+		display: flex;
+	}
 	.centerText {
 		text-align: center;
 	}
+	.iconContainer {
+		width: 20vw;
+	}
+	.icon {
+		width: 100%;
+	}
+	button {
+		color: white;
+		background: ${({theme}) => theme.button};
+		padding: 5px 5px;
+		border-radius: 7px;
+		border: none;
+	}
+	button a, button {
+		color: white;
+		font-size: 15px;
+	}
+	@media screen and (min-width: 800px) {
+		.iconContainer {
+			width: 7vw;
+		}
+	}
+
 
 	/* - - - - - Header - - - - */
-	header {
+	nav {
+		padding: 20px 4vw 0;
+		background: ${({theme}) => theme.background};
 		display: flex;
 		align-items: center;
-		justify-content: space-between
+		justify-content: space-between;
 	}
-	svg {
-		width: 150px;
-		height: 100px;
-		position: relative;
-		right: 0;
+	.switchIcon {
+		width: 15vw;
 	}
-	#crescent {
-		fill: ${({theme}) => theme.fillCrescent};
-		stroke: ${({theme}) => theme.strokeCrescent};
-		transition: fill 1s;
+	.buttonDiv {
+		min-width: 40%;
+		justify-content: space-between;
 	}
-	#circle {
-		fill: ${({theme}) => theme.fillCircle};
-		stroke: ${({theme}) => theme.strokeCircle};
+	@media screen and (min-width: 800px) {
+		.switchIcon {
+			width: 5vw;
+		}
+		button {
+			padding: 9px 9px;
+		}
+		.buttonDiv {
+			min-width: 15%
+		}
 	}
-
 
 	/* - - - - Forms - - - - */
-	.iconDiv {
+	.formContainer .iconDiv {
 		position: fixed;
 		top: 50px;
 	}
-	.icon {
+	.formContainer .icon {
+		display: block;
 		width: 28%;
-    display: block;
-    margin: 0 auto;
+		margin: 0 auto;
 	}
 	.formContainer {
 		background: teal;
@@ -100,13 +131,9 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	.formContainer button {
 		background: tomato;
-		border-radius: 7px;
-		border: none;
-		height: 25px;
 	}
-	.formContainer button a, .formContainer button {
-		color: white;
-		font-size: 15px;
+	.formContainer p {
+		color: cornsilk;
 	}
 	.errorsDiv {
 		max-height: 300px;
@@ -139,12 +166,12 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	@media screen and (min-width: 800px) {
-		.iconDiv {
+		.formContainer	.iconDiv {
 			position: static;
 			width: 35vw;
 			margin: 45px auto 20px;
 		}
-		.inputDiv {
+		.formContainer	.inputDiv {
 			margin: 0 auto;
 			width: 90%;
 	}
@@ -155,4 +182,7 @@ export const GlobalStyles = createGlobalStyle`
 		width: 100%;
 	}
 	}
+
+	/* - - - - - Home - - - - */
+
 `
