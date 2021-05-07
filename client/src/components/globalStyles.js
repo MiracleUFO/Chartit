@@ -245,8 +245,8 @@ export const GlobalStyles = createGlobalStyle`
 
 #hero > section > h1 {
 	font-family: 'Montserrat';
-	font-size: 3rem;
-	line-height: 4.2rem;
+	font-size: 2.8rem;
+	line-height: 4rem;
 	color: rgba(31,35,51,var(--text-opacity));
 	text-transform: capitalize;
 }
@@ -264,6 +264,11 @@ export const GlobalStyles = createGlobalStyle`
 	color: ${({theme}) => theme.transparentButtonColor};
 }
 
+#hero .buttonDiv a:nth-of-type(2) button:hover {
+	background: ${({theme}) => theme.transparentButtonBgHover};
+	padding: 0.9rem 1.7rem;;
+}
+
 @media screen and (min-width: 800px) {
 	#hero {
 		height: 77vh;
@@ -272,6 +277,8 @@ export const GlobalStyles = createGlobalStyle`
 		justify-content: center;
 	}
 	#hero > section:first-of-type {
+		display: block;
+		margin-top: 95px;
 		align-items: start;
 		margin-left: 2vw;
 		text-align: start;

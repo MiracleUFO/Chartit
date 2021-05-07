@@ -10,7 +10,8 @@ export const lightTheme = {
 	heroImgBg: `#E0E9FA`,
 	heroPColor: `#110`,
 	transparentButtonColorBg: `#E0E9FA`,
-	transparentButtonColor: `mediumpurple`
+	transparentButtonColor: `mediumpurple`,
+	transparentButtonBgHover: `#E0E9FA`
 }
 
 export const darkTheme = {
@@ -22,6 +23,7 @@ export const darkTheme = {
 	navBgMobile: `transparent`,
 	heroImgBg: `transparent`,
 	heroPColor: `white`,
-	transparentButtonColorBg: `#7447d1`,
-	transparentButtonColor: `#E0E9FA`
+	transparentButtonColorBg: `#935bd6`,
+	transparentButtonColor: `#E0E9FA`,
+	transparentButtonBgHover: `#7447d1`
 }
