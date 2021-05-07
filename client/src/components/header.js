@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom';
 import icon from '../imgs/icon.png';
 import iconalt from '../imgs/icon alt.png';
-import switchOn from '../imgs/switchOn.png';
+import switchOn from '../imgs/switchDarkOn.png';
 import switchOff from '../imgs/switchOff.png';
 
 export const Header = (props) => {

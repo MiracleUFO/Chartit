@@ -23,7 +23,7 @@ export const darkTheme = {
 	navBgMobile: `transparent`,
 	heroImgBg: `transparent`,
 	heroPColor: `white`,
-	transparentButtonColorBg: `#935bd6`,
+	transparentButtonColorBg: `#a45bd6`,
 	transparentButtonColor: `#E0E9FA`,
 	transparentButtonBgHover: `#7447d1`
 }
