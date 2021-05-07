@@ -19,7 +19,7 @@ const App = () => {
       <div className="App">
       <Header themeToggler={themeToggler} theme={theme} />
         <Switch>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' render= {(props) => <Home {...props} theme={theme}/>} />
           <Route path='/SignUp' component={SignUpView} />
           <Route path='/Login' component={LoginView} />
         </Switch>
