@@ -1,4 +1,4 @@
-import night from '../imgs/night.jpg'
+import night from '../../imgs/night.jpg';
 
 export const lightTheme = {
 	text: `#000`,
@@ -12,7 +12,10 @@ export const lightTheme = {
 	transparentButtonColorBg: `#E0E9FA`,
 	transparentButtonColor: `mediumpurple`,
 	transparentButtonBgHover: `#E0E9FA`,
-	curve: `white`
+	curve: `white`,
+	charterElementBg: `mediumpurple`,
+	charterElementBgHover: `#6C49B4`,
+	footerBg: `slategrey`
 }
 
 export const darkTheme = {
@@ -27,5 +30,8 @@ export const darkTheme = {
 	transparentButtonColorBg: `#a45bd6`,
 	transparentButtonColor: `#E0E9FA`,
 	transparentButtonBgHover: `#7447d1`,
-	curve: `transparent`
+	curve: `transparent`,
+	charterElementBg: `#a25bd6`,
+	charterElementBgHover: `blueviolet`,
+	footerBg: `black`
 }
