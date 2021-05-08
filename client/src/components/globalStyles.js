@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
 		transition: background 2s, color 2s, display 5s;
 	}
 	* {
-		overflow: hidden;
+		overflow-x: hidden;
 	}
 	a {
 		text-decoration: none;
@@ -62,7 +62,7 @@ export const GlobalStyles = createGlobalStyle`
 
 	/* - - - - - Header - - - - */
 	nav {
-		height: 110px;
+		height: 15vh;
 		padding: 0 4vw;
 		background: ${({theme}) => theme.navBgMobile};
 		border-bottom: ${({theme}) => theme.borderBottom};
@@ -82,6 +82,11 @@ export const GlobalStyles = createGlobalStyle`
 	.buttonDiv {
 		justify-content: space-between;
 		align-items: center;
+	}
+	@media screen and (max-width: 320px) {
+		nav > section {
+		  width: 50vw;
+		}
 	}
 	@media screen and (min-width: 800px) {
 		nav {
@@ -225,10 +230,8 @@ export const GlobalStyles = createGlobalStyle`
 
 /* - - - - - Home - - - - */
 #hero {
-	margin: 50px 3vw 0;
 	display: flex;
 	flex-direction: column;
-	height: 550px;
 }
 
 #hero > section {
@@ -251,22 +254,68 @@ export const GlobalStyles = createGlobalStyle`
 	text-transform: capitalize;
 }
 
+#hero > section > h1 span {
+		display: none;
+}
+
 #hero > section:first-of-type p {
-	font-size: 1.125rem;
+	font-size: 1.5rem;
+	font-weight: 900;
+}
+
+#hero-text {
+	height: 85vh;
 }
 
 #hero-img {
+	height: 55vh;
 	background: ${({theme}) => theme.heroImgBg};
+	margin-top: 2vh;
+}
+
+#hero-img:before {
+	content:"";
+	height: 7px;
+	background: ${({theme}) => theme.curve};
+	position:absolute;
+	left:0;
+	right:0;
+	top: 102vh;
+	clip-path: polygon(0% 0%, 5% 60%, 10% 0%, 15% 60%, 20% 0%, 25% 60%, 30% 0%, 35% 60%, 40% 0%, 45% 60%, 50% 0%, 55% 60%, 60% 0%, 65% 60%, 70% 0%, 75% 60%, 80% 0%, 85% 60%, 90% 0%, 95% 60%, 100% 0%);
+	-webkit-clip-path: polygon(0% 0%, 5% 60%, 10% 0%, 15% 60%, 20% 0%, 25% 60%, 30% 0%, 35% 60%, 40% 0%, 45% 60%, 50% 0%, 55% 60%, 60% 0%, 65% 60%, 70% 0%, 75% 60%, 80% 0%, 85% 60%, 90% 0%, 95% 60%, 100% 0%);
+}
+
+#hero .buttonDiv {
+	margin: 10px 0;
+}
+
+#hero .buttonDiv a:first-of-type button {
+	margin-right: 15px;
 }
 
 #hero .buttonDiv a:nth-of-type(2) button {
-	background: ${({theme}) => theme.transparentButtonColorBg};
-	color: ${({theme}) => theme.transparentButtonColor};
+	background: darkviolet;
+	color: #E0E9FA;
 }
 
 #hero .buttonDiv a:nth-of-type(2) button:hover {
 	background: ${({theme}) => theme.transparentButtonBgHover};
 	padding: 0.9rem 1.7rem;;
+}
+
+@media screen and (max-height: 600px) {
+	#hero > section > h1 {
+    font-size: 2rem;
+    line-height: 3.2rem;
+	}
+
+	#hero-text {
+		height: -webkit-fill-available;
+	}
+
+	#hero-img:before {
+		top: 93.5vh;
+	}
 }
 
 @media screen and (min-width: 800px) {
@@ -283,26 +332,37 @@ export const GlobalStyles = createGlobalStyle`
 		margin-left: 2vw;
 		text-align: start;
 		width: 85%;
+		height: fit-content;
 	}
 	#hero > section > h1, #hero > section:first-of-type p {
 		width: 40rem;
 	}
+	#hero > section > h1 span {
+		display: inline;
+	}
 	#hero > section:first-of-type p {
+		font-size: 1.125rem;
+		font-weight: 400;
 		width: 37rem;
 		color: ${({theme}) => theme.heroPColor};
     margin-top: 7px;
 		letter-spacing: 1.5px;
 		font-weight: 900;
 	}
-	#hero-img {
-	  border-radius: 0 0 0 60%;
-	}
 	#hero .buttonDiv {
 		display: block;
-		margin-top: 10px;
 	}
-	#hero .buttonDiv a:first-of-type button {
-		margin-right: 15px;
+	#hero .buttonDiv a:nth-of-type(2) button {
+		background: ${({theme}) => theme.transparentButtonColorBg};
+		color: ${({theme}) => theme.transparentButtonColor};
+	}
+	#hero-img:before {
+		height: 0;
+	}
+	#hero-img {
+	  border-radius: 0 0 0 60%;
+		margin: 0;
+		height: 75.5vh;
 	}
 }
 `

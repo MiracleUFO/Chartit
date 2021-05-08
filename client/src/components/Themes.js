@@ -11,7 +11,8 @@ export const lightTheme = {
 	heroPColor: `#110`,
 	transparentButtonColorBg: `#E0E9FA`,
 	transparentButtonColor: `mediumpurple`,
-	transparentButtonBgHover: `#E0E9FA`
+	transparentButtonBgHover: `#E0E9FA`,
+	curve: `white`
 }
 
 export const darkTheme = {
@@ -25,5 +26,6 @@ export const darkTheme = {
 	heroPColor: `white`,
 	transparentButtonColorBg: `#a45bd6`,
 	transparentButtonColor: `#E0E9FA`,
-	transparentButtonBgHover: `#7447d1`
+	transparentButtonBgHover: `#7447d1`,
+	curve: `transparent`
 }

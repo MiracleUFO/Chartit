@@ -7,7 +7,7 @@ export const Home = (props) => {
     <main>
       <section id='hero'>
         <section id='hero-text'>
-          <h1>Creating downloadable charts for individuals and businesses</h1>
+          <h1><span>Creating</span> downloadable charts for individuals and businesses</h1>
           <p>
             Chartit makes it easy for businesses, schools and individuals, to visualize and present data 
             in clean cut, customizable charts.
@@ -19,10 +19,12 @@ export const Home = (props) => {
         </section>
 
         <section id='hero-img'>
-        {props.theme === 'light' ? 
-        <img src={heroImg} alt='People sitting on a pie chart' /> :
-        <img src={heroImgNoBg} alt='People sitting on a pie chart' />
-        }
+          {window.innerWidth >= 800 ?
+          props.theme === 'light' ? 
+          <img src={heroImg} alt='People sitting on a pie chart' />  :
+          <img src={heroImgNoBg} alt='People sitting on a pie chart' /> :
+          <img src={heroImgNoBg} alt='People sitting on a pie chart' />
+          }
         </section>
       </section>
     </main>
