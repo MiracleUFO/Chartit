@@ -287,7 +287,7 @@ export const GlobalStyles = createGlobalStyle`
 	#hero-img {
 		height: 55vh;
 		background: ${({theme}) => theme.heroImgBg};
-		margin-top: 70px;
+		margin-top: 65px;
 	}
 	/*#hero-img:before {
 		content:"";
@@ -309,16 +309,13 @@ export const GlobalStyles = createGlobalStyle`
 	svg {
 		display: none;
 	}
-
 	#hero .buttonDiv a:first-of-type button {
 		margin-right: 15px;
 	}
-
 	#hero .buttonDiv a:nth-of-type(2) button {
 		background: blueviolet;
 		color: #E0E9FA;
 	}
-
 	#hero .buttonDiv a:nth-of-type(2) button:hover {
 		background: ${({theme}) => theme.transparentButtonBgHover};
 		padding: 0.9rem 1.7rem;;
@@ -329,11 +326,9 @@ export const GlobalStyles = createGlobalStyle`
 			font-size: 2rem;
 			line-height: 3.2rem;
 		}
-
 		#hero-text {
 			height: -webkit-fill-available;
 		}
-
 		#hero-img:before {
 			top: 93.5vh;
 		}
@@ -396,9 +391,6 @@ export const GlobalStyles = createGlobalStyle`
 		padding-top: 110px;
 		padding-bottom: 80px;
 	}
-	#charter-wrapper {
-		padding-top: 30px;
-	}
 	#charter-wrapper-wrapper h2 {
 		margin-bottom: 5px;
 		text-align: center;
@@ -440,6 +432,7 @@ export const GlobalStyles = createGlobalStyle`
 		display: block;
 	}
 	.tooltip-wrapper {
+		margin-left: 10px;
 		display: none;
     position: absolute;
     left: 7.5em;
