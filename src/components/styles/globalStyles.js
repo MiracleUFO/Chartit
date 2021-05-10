@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
 
 	body {
@@ -446,6 +446,12 @@ export const GlobalStyles = createGlobalStyle`
 		height: 75px;
 		border-radius: 50%;
 	}
+	.submit-btn {
+		background: ${({theme}) => theme.submitBtn};
+	}
+	.submit-btn-active {
+		background: ${({theme}) => theme.submitBtnActive};
+	}
 	.clear-btn {
 		display: inline;
 		font-weight: 900;
@@ -480,7 +486,7 @@ export const GlobalStyles = createGlobalStyle`
 
 /* - - - - - Footer - - - - */
 	footer {
-		height: 70px;
+		height: 90px;
 		display: flex;
 		justify-content: center;
 		align-items: center;

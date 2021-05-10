@@ -1,4 +1,6 @@
-import {useState} from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { sendPicks } from '../../redux/actions/sendPicks';
 import pieTip from '../../imgs/pie-tip.jpg';
 import barTip from '../../imgs/bar-tip.jpg';
 import histogramTip from '../../imgs/histogram-tip.jpg';
@@ -28,10 +30,20 @@ export const CharterPicker = () => {
     setState(newState);
   }
 
+  let picked = state.pieChart || state.barChart || state.histogram || state.ogive;
+  
+  let dispatch = useDispatch();
+
   let handleSubmit =  (e) => {
     e.preventDefault();
     console.log('i');
+    if (picked) {
+      console.log('sending');
+      dispatch(sendPicks(state));
+    }
   }
+
+  let submitBtnClass = picked ? 'submit-btn-active' : 'submit-btn';
 
   return (
       <section className='charter-element'>
@@ -60,7 +72,7 @@ export const CharterPicker = () => {
               <div className='tooltip-wrapper'><img src={ogiveTip} alt='Ogive chart tooltip' /></div>
             </div><br />
 
-            <div><span className='clear-btn' onClick={handleClear}>Clear</span> <button className='Submit'>Next</button></div>
+            <div><span className='clear-btn' onClick={handleClear}>Clear</span> <button className={submitBtnClass}>Next</button></div>
           </form>
       </section>
   )

@@ -1,5 +1,5 @@
-import {Hero} from './hero';
-import {CharterWrapper} from './charter/charterWrapper';
+import { Hero } from './hero';
+import { CharterWrapper } from './charter/charterWrapper';
 
 export const Home = (props) => {
   return (

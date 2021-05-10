@@ -15,7 +15,9 @@ export const lightTheme = {
 	curve: `white`,
 	charterElementBg: `mediumpurple`,
 	charterElementBgHover: `#6C49B4`,
-	footerBg: `slategrey`
+	footerBg: `slategrey`,
+	submitBtn: `#FFB347`,
+	submitBtnActive: `orange`
 }
 
 export const darkTheme = {
@@ -33,5 +35,7 @@ export const darkTheme = {
 	curve: `transparent`,
 	charterElementBg: `#a25bd6`,
 	charterElementBgHover: `blueviolet`,
-	footerBg: `black`
+	footerBg: `black`,
+	submitBtn: `#FF7961`,
+	submitBtnActive: `tomato`
 }

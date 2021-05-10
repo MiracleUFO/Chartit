@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import heroImg from '../imgs/chartit-hero-img.png';
 import heroImgNoBg from '../imgs/chartit-hero-img-nobg.png';
 
@@ -9,8 +9,8 @@ export const Hero = (props) => {
         <section id='hero-text'>
           <h1><span>Creating</span> downloadable charts for individuals and businesses</h1>
           <p>
-            Chartit makes it easier and faster for businesses, schools and individuals to visualize and present data 
-            in clean cut, customizable, and downloadable charts.
+            Chartit makes it faster and easier for businesses, schools and individuals to visualize data 
+            in clean, customizable, downloadable charts.
           </p>
           <div className='flex buttonDiv'>
             <NavLink to='/SignUp'><button>Sign up</button></NavLink>

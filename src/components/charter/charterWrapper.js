@@ -1,6 +1,6 @@
-import {CharterPicker} from './charterPicker';
-import {CharterInputs} from './charterInputs';
-import {CharterFinal} from './charterFinal';
+import { CharterPicker } from './charterPicker';
+import { CharterInputs } from './charterInputs';
+import { CharterFinal } from './charterFinal';
 
 export const CharterWrapper = () => {
     return (
