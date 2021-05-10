@@ -425,7 +425,7 @@ export const GlobalStyles = createGlobalStyle`
 	.charter-element form > div:hover {
 		display: flex;
 		align-items: center;
-		height: 85px;
+		height: 90px;
 		width: 220px;
 	}
 	.charter-element form > div:hover .tooltip-wrapper  {
