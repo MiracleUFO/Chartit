@@ -8,7 +8,7 @@ const initState = {
 }
 
 const rootReducer = (state = initState, action) => {
-  if (action.type == "SEND_PICKS") {
+  if (action.type === "SEND_PICKS") {
     const { playerDeets, ...newState } = state; //Remove previous picked charts value immutably
       return Object.assign({}, newState, {chartPicks: action.payload}) //Adds new one from action payload
     }
