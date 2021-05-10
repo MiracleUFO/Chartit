@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
 		display: none;
 	}
 	.icon-mobile, .icon {
-		width: 85%;
+		width: 80%;
 	}
 	.icon {
 		display: none;
