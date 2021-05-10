@@ -5,7 +5,7 @@ import {CharterFinal} from './charterFinal';
 export const CharterWrapper = () => {
     return (
         <section id='charter-wrapper-wrapper'>
-            <h2>Let's Chartit then...</h2>
+            <h2>Let's Chartit...</h2>
             <section id='charter-wrapper'>
                 <CharterPicker />
                 <CharterInputs />

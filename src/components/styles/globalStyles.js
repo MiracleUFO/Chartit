@@ -253,19 +253,17 @@ export const GlobalStyles = createGlobalStyle`
 		display: flex;
 		flex-direction: column;
 	}
-
 	#hero > section {
+		margin-top: 30px;
 		text-align: center;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 	}
-
 	#hero > section > h1, #hero > section > p {
 		margin: 2px;
 	}
-
 	#hero > section > h1 {
 		font-family: 'Montserrat';
 		font-size: 2.8rem;
@@ -279,21 +277,18 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	#hero > section:first-of-type p {
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		font-weight: 900;
 	}
-
 	#hero-text {
 		height: 85vh;
 	}
-
 	#hero-img {
 		height: 55vh;
 		background: ${({theme}) => theme.heroImgBg};
 		margin-top: 2vh;
 	}
-
-	#hero-img:before {
+	/*#hero-img:before {
 		content:"";
 		height: 7px;
 		background: ${({theme}) => theme.curve};
@@ -301,9 +296,7 @@ export const GlobalStyles = createGlobalStyle`
 		left:0;
 		right:0;
 		top: 102vh;
-		clip-path: polygon(0% 0%, 5% 60%, 10% 0%, 15% 60%, 20% 0%, 25% 60%, 30% 0%, 35% 60%, 40% 0%, 45% 60%, 50% 0%, 55% 60%, 60% 0%, 65% 60%, 70% 0%, 75% 60%, 80% 0%, 85% 60%, 90% 0%, 95% 60%, 100% 0%);
-		-webkit-clip-path: polygon(0% 0%, 5% 60%, 10% 0%, 15% 60%, 20% 0%, 25% 60%, 30% 0%, 35% 60%, 40% 0%, 45% 60%, 50% 0%, 55% 60%, 60% 0%, 65% 60%, 70% 0%, 75% 60%, 80% 0%, 85% 60%, 90% 0%, 95% 60%, 100% 0%);
-	}
+	}*/
 	#wave {
 		height: 50px;
 		clip-path: url(#wave);
@@ -351,6 +344,9 @@ export const GlobalStyles = createGlobalStyle`
 			margin: 0 0 0 2vw;
 			flex-direction: row;
 			justify-content: center;
+		}
+		#hero > section {
+			margin-top: 0;
 		}
 		#hero > section:first-of-type {
 			display: block;
@@ -422,7 +418,7 @@ export const GlobalStyles = createGlobalStyle`
 		box-shadow: 20px 20px 10px 5px rgba(0,0,0,0.105);
 	}
 	.charter-element form {
-		width: 44%;
+		width: 51.5%;
 		height: -webkit-fill-available;
 		margin: 0 auto;
 		display: flex;
@@ -430,13 +426,39 @@ export const GlobalStyles = createGlobalStyle`
 		justify-content: center;
 		color: white;
 	}
+	.charter-element form > div {
+		position: relative;
+	}
+	.charter-element form > div:hover {
+		display: flex;
+		align-items: center;
+		height: 85px;
+		width: 220px;
+	}
+	.charter-element form > div:hover .tooltip-wrapper  {
+		display: block;
+	}
+	.tooltip-wrapper {
+		display: none;
+    position: absolute;
+    left: 7.5em;
+    background: transparent;
+    width: fit-content;
+    font-size: 0.8em;
+    padding: 0.3em;
+	}
+	.tooltip-wrapper img {
+		width: 75px;
+		height: 75px;
+		border-radius: 50%;
+	}
 	.clear-btn {
 		display: inline;
 		font-weight: 900;
 		padding-right: 10px;
 		cursor: pointer;
 	}
-	.clear-btn:hover, .charter-element form label:hover {
+	.clear-btn:hover, .charter-element form div:hover {
 		font-weight: 900;
 	}
 
@@ -464,12 +486,18 @@ export const GlobalStyles = createGlobalStyle`
 
 /* - - - - - Footer - - - - */
 	footer {
-		height: 100px;
+		height: 70px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		color: #E0E9FA;
 		font-weight: 900;
 		background: ${({theme}) => theme.footerBg};
+	}
+
+	@media screen and (min-width: 800px) {
+		footer {
+			height: 100px;
+		}
 	}
 `
