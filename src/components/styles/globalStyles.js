@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
 		display: none;
 	}
 	.icon-mobile, .icon {
-		width: 80%;
+		width: 75%;
 	}
 	.icon {
 		display: none;
@@ -265,7 +265,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#hero > section > h1 {
 		font-family: 'Montserrat';
-		font-size: 2.8rem;
+		font-size: 2.85rem;
 		line-height: 4rem;
 		color: rgba(31,35,51,var(--text-opacity));
 		text-transform: capitalize;
@@ -278,7 +278,7 @@ export const GlobalStyles = createGlobalStyle`
 	#hero > section:first-of-type p {
 		font-size: 1.2rem;
 		font-weight: 900;
-		width: 80vw;
+		width: 90vw;
 	}
 	#hero-text {
 		margin-top: 30px;
