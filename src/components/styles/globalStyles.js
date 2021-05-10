@@ -254,7 +254,6 @@ export const GlobalStyles = createGlobalStyle`
 		flex-direction: column;
 	}
 	#hero > section {
-		margin-top: 30px;
 		text-align: center;
 		display: flex;
 		flex-direction: column;
@@ -279,14 +278,16 @@ export const GlobalStyles = createGlobalStyle`
 	#hero > section:first-of-type p {
 		font-size: 1.2rem;
 		font-weight: 900;
+		width: 80vw;
 	}
 	#hero-text {
+		margin-top: 30px;
 		height: 85vh;
 	}
 	#hero-img {
 		height: 55vh;
 		background: ${({theme}) => theme.heroImgBg};
-		margin-top: 2vh;
+		margin-top: 70px;
 	}
 	/*#hero-img:before {
 		content:"";
@@ -401,7 +402,7 @@ export const GlobalStyles = createGlobalStyle`
 	#charter-wrapper-wrapper h2 {
 		margin-bottom: 5px;
 		text-align: center;
-		width: 80vw;
+		width: 95vw;
 		margin: 0 auto;
 		font:  bolder 2.5rem 'Montserrat';
 	}
@@ -418,7 +419,7 @@ export const GlobalStyles = createGlobalStyle`
 		box-shadow: 20px 20px 10px 5px rgba(0,0,0,0.105);
 	}
 	.charter-element form {
-		width: 51.5%;
+		width: max-content;
 		height: -webkit-fill-available;
 		margin: 0 auto;
 		display: flex;
