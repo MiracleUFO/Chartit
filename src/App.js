@@ -9,7 +9,7 @@ import {Home} from './components/home';
 import {Footer} from './components/footer';
 
 const App = () => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   let themeToggler = () => {theme === 'light' ? setTheme('dark') : setTheme('light');}
 
   return (

@@ -270,14 +270,12 @@ export const GlobalStyles = createGlobalStyle`
 		color: rgba(31,35,51,var(--text-opacity));
 		text-transform: capitalize;
 	}
-
 	#hero > section > h1 span {
 			display: none;
 	}
-
 	#hero > section:first-of-type p {
-		font-size: 1.2rem;
-		font-weight: 900;
+		font-family: 'Montserrat';
+		font-size: 1.1rem;
 		width: 90vw;
 	}
 	#hero-text {

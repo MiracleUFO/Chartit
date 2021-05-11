@@ -31,12 +31,12 @@ export const CharterPicker = () => {
   }
 
   let picked = state.pieChart || state.barChart || state.histogram || state.ogive;
-  
+
   let dispatch = useDispatch();
 
   let handleSubmit =  (e) => {
     e.preventDefault();
-    console.log('i');
+    console.log(picked);
     if (picked) {
       console.log('sending');
       dispatch(sendPicks(state));
