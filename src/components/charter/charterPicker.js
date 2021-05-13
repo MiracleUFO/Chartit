@@ -36,18 +36,29 @@ export const CharterPicker = () => {
 
   let handleSubmit =  (e) => {
     e.preventDefault();
-    console.log(picked);
     if (picked) {
-      console.log('sending');
       dispatch(sendPicks(state));
+      document.getElementById('first-charter-element').blur();
+      document.getElementById('second-charter-element').focus();
+      
+      if (window.innerWidth <= 800) {
+        //let top = window.pageYOffset + 500;
+        var top = document.getElementById('second-charter-element').getBoundingClientRect().top + window.scrollY;
+        window.scroll({
+          top: top,
+          left: 100,
+          behavior: 'smooth'
+        });
+      } 
     }
   }
 
   let submitBtnClass = picked ? 'submit-btn-active' : 'submit-btn';
 
   return (
-      <section className='charter-element'>
+      <section className='charter-element' id='first-charter-element'>
           <form onSubmit={handleSubmit}>
+          <h2>Choose a chart</h2>
             <div>
               <input type='checkbox' name='pieChart' value={state.piechart} checked={state.pieChart} onChange={handleChange} />
               <label>Pie Chart</label>
@@ -72,8 +83,12 @@ export const CharterPicker = () => {
               <div className='tooltip-wrapper'><img src={ogiveTip} alt='Ogive chart tooltip' /></div>
             </div><br />
 
-            <div><span className='clear-btn' onClick={handleClear}>Clear</span> <button className={submitBtnClass}>Next</button></div>
+            
           </form>
+          <div id='clear-container'>
+              <span className='clear-btn' onClick={handleClear}>Clear</span>
+              <button onClick={handleSubmit} className={submitBtnClass}>Next</button>
+          </div>
       </section>
   )
 }

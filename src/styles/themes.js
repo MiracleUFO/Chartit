@@ -1,4 +1,4 @@
-import night from '../../imgs/night.jpg';
+import night from '../imgs/night.jpg';
 
 export const lightTheme = {
 	text: `#000`,
@@ -8,7 +8,7 @@ export const lightTheme = {
 	navBg: `purple`,
 	navBgMobile: `transparent`,
 	heroImgBg: `#E0E9FA`,
-	heroPColor: `#110`,
+	heroTextColor: `rgba(31,35,65,0.99)`,
 	transparentButtonColorBg: `#E0E9FA`,
 	transparentButtonColor: `mediumpurple`,
 	transparentButtonBgHover: `#E0E9FA`,
@@ -28,7 +28,7 @@ export const darkTheme = {
 	navBg: `transparent`,
 	navBgMobile: `transparent`,
 	heroImgBg: `transparent`,
-	heroPColor: `white`,
+	heroTextColor: `white`,
 	transparentButtonColorBg: `#a45bd6`,
 	transparentButtonColor: `#E0E9FA`,
 	transparentButtonBgHover: `#7447d1`,

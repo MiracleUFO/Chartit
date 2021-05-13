@@ -20,6 +20,10 @@ export const GlobalStyles = createGlobalStyle`
 	.none {
 		display: none;
 	}
+	h1 {
+		font-family: 'Montserrat';
+		color: ${({theme}) => theme.heroTextColor};
+	}
 	.flex {
 		display: flex;
 	}
@@ -262,20 +266,25 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#hero > section > h1, #hero > section > p {
 		margin: 2px;
+		color: ${({theme}) => theme.heroTextColor};
 	}
 	#hero > section > h1 {
-		font-family: 'Montserrat';
-		font-size: 2.85rem;
-		line-height: 4rem;
-		color: rgba(31,35,51,var(--text-opacity));
+		font-size: 2.47rem;
+		font-weight: 600;
+		line-height: 3.7rem;
+		letter-spacing: 1.2px;
+		padding-top: 4.7vh;
 		text-transform: capitalize;
 	}
 	#hero > section > h1 span {
 			display: none;
 	}
 	#hero > section:first-of-type p {
-		font-family: 'Montserrat';
-		font-size: 1.1rem;
+		font-family: 'Roboto';
+		font-weight: 900;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		letter-spacing: 1.2px;
 		width: 90vw;
 	}
 	#hero-text {
@@ -296,16 +305,8 @@ export const GlobalStyles = createGlobalStyle`
 		right:0;
 		top: 102vh;
 	}*/
-	#wave {
-		height: 50px;
-		clip-path: url(#wave);
-		-webkit-clip-path: url(#wave);
-	}
 	#hero .buttonDiv {
 		margin: 10px 0;
-	}
-	svg {
-		display: none;
 	}
 	#hero .buttonDiv a:first-of-type button {
 		margin-right: 15px;
@@ -334,7 +335,7 @@ export const GlobalStyles = createGlobalStyle`
 
 	@media screen and (min-width: 800px) {
 		#hero {
-			height: 77vh;
+			height: 90vh;
 			margin: 0 0 0 2vw;
 			flex-direction: row;
 			justify-content: center;
@@ -352,19 +353,18 @@ export const GlobalStyles = createGlobalStyle`
 			height: fit-content;
 		}
 		#hero > section > h1, #hero > section:first-of-type p {
-			width: 40rem;
+			width: 45rem;
 		}
 		#hero > section > h1 span {
 			display: inline;
 		}
 		#hero > section:first-of-type p {
-			font-size: 1.125rem;
-			font-weight: 400;
-			width: 37rem;
-			color: ${({theme}) => theme.heroPColor};
-			margin-top: 7px;
-			letter-spacing: 1.5px;
+			font-size: 1.05rem;
+			line-height: 1.5rem;
 			font-weight: 900;
+			width: 37rem;
+			margin-top: 7px;
+			letter-spacing: 2.5px
 		}
 		#hero .buttonDiv {
 			display: block;
@@ -379,7 +379,7 @@ export const GlobalStyles = createGlobalStyle`
 		#hero-img {
 			border-radius: 0 0 0 60%;
 			margin: 0;
-			height: 75.5vh;
+			height: 80vh;
 		}
 	}
 
@@ -389,12 +389,17 @@ export const GlobalStyles = createGlobalStyle`
 		padding-top: 110px;
 		padding-bottom: 80px;
 	}
-	#charter-wrapper-wrapper h2 {
+	#charter-wrapper-wrapper > h2 {
 		margin-bottom: 5px;
 		text-align: center;
 		width: 95vw;
 		margin: 0 auto;
 		font:  bolder 2.5rem 'Montserrat';
+	}
+	#clear-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.charter-element {
 		background: ${({theme}) => theme.charterElementBg};
@@ -403,10 +408,16 @@ export const GlobalStyles = createGlobalStyle`
 		width: 85vw;
 		margin: 60px auto ;
 		border-radius: 20px;
+		color: white;
 	}
 	.charter-element:hover {
 		background: ${({theme}) => theme.charterElementBgHover};
 		box-shadow: 20px 20px 10px 5px rgba(0,0,0,0.105);
+	}
+	.charter-element h2 {
+		font-size: 1.3rem;
+		text-align: center;
+		margin: 0 auto 20px;
 	}
 	.charter-element form {
 		width: max-content;
@@ -415,18 +426,18 @@ export const GlobalStyles = createGlobalStyle`
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		color: white;
+		height: 80%;
 	}
 	.charter-element form > div {
 		position: relative;
 	}
-	.charter-element form > div:hover {
+	#first-charter-element form > div:hover {
 		display: flex;
 		align-items: center;
 		height: 90px;
 		width: 220px;
 	}
-	.charter-element form > div:hover .tooltip-wrapper  {
+	#first-charter-element form > div:hover .tooltip-wrapper  {
 		display: block;
 	}
 	.tooltip-wrapper {
@@ -444,6 +455,28 @@ export const GlobalStyles = createGlobalStyle`
 		height: 75px;
 		border-radius: 50%;
 	}
+	#second-charter-element-form-wrapper {
+		height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	}
+	#second-charter-element-form-wrapper form {
+		justify-content: flex-start;
+		padding-top: 30px;
+		height: 70%;
+	}
+	#second-charter-element-form-wrapper form input {
+		border-radius: 8px;
+    padding: 5px;
+    border: none;
+		margin-bottom: 10px;
+	}
+	#second-charter-element-form-wrapper form button {
+		position: relative;
+		left: 20%;
+		margin-top: 20px;
+	}
 	.submit-btn {
 		background: ${({theme}) => theme.submitBtn};
 	}
@@ -459,6 +492,9 @@ export const GlobalStyles = createGlobalStyle`
 	.clear-btn:hover, .charter-element form div:hover {
 		font-weight: 900;
 	}
+	.hidden {
+		overflow-y: hidden;
+	}
 
 	@media screen and (min-width: 800px) {
 		#charter-wrapper {
@@ -469,7 +505,7 @@ export const GlobalStyles = createGlobalStyle`
 			width: 27vw;
 			margin: 0;
 		}
-		#charter-wrapper-wrapper h2 {
+		#charter-wrapper-wrapper > h2 {
 			margin-bottom: 50px;
 			font: bolder 2.8rem 'Montserrat';
 		}

@@ -3,7 +3,7 @@ import { CharterWrapper } from './charter/charterWrapper';
 
 export const Home = (props) => {
   return (
-    <main>
+    <main id='home'>
       <Hero theme={props.theme} />
       <CharterWrapper />
     </main>

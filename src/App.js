@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {ThemeProvider} from 'styled-components';
-import {GlobalStyles} from './components/styles/globalStyles';
-import {lightTheme, darkTheme} from './components/styles/themes';
+import {GlobalStyles} from './styles/globalStyles';
+import {lightTheme, darkTheme} from './styles/themes';
 import {Header} from './components/header';
 import {SignUpView, LoginView} from './components/authView';
 import {Home} from './components/home';
