@@ -21,7 +21,7 @@ export const CharterFinal = () => {
   useEffect(() => {
     let downloadBtnClass = state.charting ? 'submit-btn-active' : 'submit-btn';
     setState({...state, downloadBtnClass: downloadBtnClass});
-  }, [state.charting])
+  }, [state.charting]);     // eslint-disable-line react-hooks/exhaustive-deps
 
 
   //Additional styles based on store
