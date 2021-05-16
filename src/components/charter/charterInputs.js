@@ -89,7 +89,10 @@ export const CharterInputs = () => {
       case 'ogivePairs':
         dataPairs.push(state.inputs.ogiveLabel);
         dataPairs.push(Number(state.inputs.ogiveValue));
-        break;  
+        break;
+
+      default:
+        break;
     }
 
     for ( const [k,v] of Object.entries(state.dataPairs)) {
@@ -97,6 +100,7 @@ export const CharterInputs = () => {
         let newDataPairs = {...state.dataPairs};
         newDataPairs[k].push(dataPairs);
         setState({...state, dataPairs: newDataPairs});
+        console.log(v);
       }
     }
   }
@@ -115,11 +119,11 @@ export const CharterInputs = () => {
           newChartPicks[k] = false;
         }
 
-        for (const [ky, vl] of Object.entries(iter)) {
+        Object.entries(iter).map(item => {
           if (!v) {
             delete iter[k];
           }
-        }
+        });
 
         for (const [key,val] of Object.entries(newChartPicks)) {  //Sets next pick in chartPicks to true in state.controls
           if (val) {
@@ -171,8 +175,8 @@ export const CharterInputs = () => {
           inputted: false,
           charting: false,
           i: 0,
-          chartPicks: chartPicks
-        });
+          chartPicks: {...chartPicks}
+        });   // eslint-disable-next-line react-hooks/exhaustive-deps
         return false;
       }   
     }
@@ -185,7 +189,7 @@ export const CharterInputs = () => {
 
     for (const [k,v] of Object.entries(state.controls)) {
       if (v) {
-        submitBtnClass = state.inputs[`${k}Value`] && state.inputs[`${k}Label`] ? 'submit-btn-active' : 'submit-btn';
+        submitBtnClass = state.inputs[`${k}Value`] && state.inputs[`${k}Label`] ? 'submit-btn-active' : 'submit-btn';   // eslint-disable-next-line react-hooks/exhaustive-deps
         setState({...state, submitBtnClass: submitBtnClass});
       }
     }
@@ -205,7 +209,7 @@ export const CharterInputs = () => {
           inputted: inputted, 
           nextBtnClass: inputted ? 'submit-btn-active' : 'submit-btn',
           submitBtnClass: submitBtnClass,
-          inputs: newInputs
+          inputs: newInputs,    // eslint-disable-next-line react-hooks/exhaustive-deps
         });
       }
     } 
@@ -222,7 +226,7 @@ export const CharterInputs = () => {
           ...state,
           inputted: inputted, 
           nextBtnClass: inputted ? 'submit-btn-active' : 'submit-btn',
-          inputs: newInputs
+          inputs: newInputs,    // eslint-disable-next-line react-hooks/exhaustive-deps
         });
       }
     } 
@@ -234,7 +238,7 @@ export const CharterInputs = () => {
     if (state.charting) {
       dispatch(sendCharting(state.charting));
       setState({
-        ...state,
+        ...state,   // eslint-disable-next-line react-hooks/exhaustive-deps
         nextBtnClass: !state.charting ? 'submit-btn-active' : 'submit-btn',
       });
     }

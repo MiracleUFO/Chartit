@@ -5,14 +5,12 @@ import heroImgNoBg from '../imgs/chartit-hero-img-nobg.png';
 export const Hero = (props) => {
 
   let handleScroll = (e) => {
-    if (window.innerWidth <= 800) {
-      var top = document.getElementById('charter-wrapper-wrapper').getBoundingClientRect().top + window.scrollY;
-      window.scroll({
-        top: top,
-        left: 100,
-        behavior: 'smooth'
-      });
-    } 
+    var top = document.getElementById('charter-wrapper-wrapper').getBoundingClientRect().top + window.scrollY;
+    window.scroll({
+      top: top,
+      left: 100,
+      behavior: 'smooth'
+    });
   }
 
   return (
@@ -27,7 +25,7 @@ export const Hero = (props) => {
           </p>
           <div className='flex buttonDiv'>
             <NavLink to='/SignUp'><button>Sign up</button></NavLink>
-            <button className='transparent-button' id='transparent-button' onClick={handleScroll}>Get Started</button>
+            <button id='transparent-button' onClick={handleScroll}>Get Started</button>
           </div>
         </section>
 
