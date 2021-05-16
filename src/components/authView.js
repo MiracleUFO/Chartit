@@ -1,6 +1,6 @@
 import {NavLink} from 'react-router-dom';
 import React,  {useRef, useEffect, useState} from 'react';
-import icon from '../imgs/icon.png';
+import icon from '../imgs/icon alt.png';
 import loader from '../imgs/loader.gif';
 
 export const SignUpView = () => {
@@ -88,68 +88,71 @@ export const SignUpView = () => {
           window.location = '/Login'
         }
       })
-      .catch((e) => console.log(e));
+      .catch((err) => {
+        console.log(err);
+        window.location = '/Login';
+      });
     }
   }
 
 
   let formContainerClass = window.innerWidth > 600 ? 'formContainer formContainerPC' : 'formContainer';
   return (
-    <main>
-    <div className='none' ref={loaderRef}><img src={loader}  alt='Loader gif' /></div>
-    <section className={formContainerClass}>
-      
-      <NavLink to='/' className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></NavLink>
-
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div className='inputDiv' >
-            <label htmlFor='signUpEmail'>Email:</label> 
-            <input placeholder='example@example.com' type='email' id='signUpEmail' name='email' onChange={handleChange} value={state.email} pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" required />
-          </div>
-        </div>
+    <main className='authView'>
+      <div className='none' ref={loaderRef}><img src={loader}  alt='Loader gif' /></div>
+      <section className={formContainerClass}>
         
-        <div>
-          <div className='inputDiv' >
-            <label htmlFor='userName'>Call me:</label>
-            <input placeholder='Miracle' type='text'  id='userName' name='username' onChange={handleChange} value={state.userName}  required />
+        <NavLink to='/' className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></NavLink>
+
+        <form onSubmit={handleSubmit}>
+          <div>
+            <div className='inputDiv' >
+              <label htmlFor='signUpEmail'>Email:</label> 
+              <input placeholder='example@example.com' type='email' id='signUpEmail' name='email' onChange={handleChange} value={state.email} pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" required />
+            </div>
           </div>
-        </div>
-        
-        <div>
-          <div className='inputDiv'>
-            <label htmlFor='signUpPassword'>Password:</label>
-            <input type='password' id='signUpPassword' name='password' onChange={ handleChange} onBlur={handleBlur} value={state.password} required />
+          
+          <div>
+            <div className='inputDiv' >
+              <label htmlFor='userName'>Call me:</label>
+              <input placeholder='Miracle' type='text'  id='userName' name='username' onChange={handleChange} value={state.userName}  required />
+            </div>
+          </div>
+          
+          <div>
+            <div className='inputDiv'>
+              <label htmlFor='signUpPassword'>Password:</label>
+              <input type='password' id='signUpPassword' name='password' onChange={ handleChange} onBlur={handleBlur} value={state.password} required />
+            </div>
+
+            <div className='errorsDiv'>
+              <p>{state.errors.passwordLength}</p>
+              <p>{state.errors.passwordRegex}</p>
+            </div>
+            <div className='errorP'>
+              <p>{state.errors.confirmPass}</p>
+            </div> 
           </div>
 
-          <div className='errorsDiv'>
-            <p>{state.errors.passwordLength}</p>
-            <p>{state.errors.passwordRegex}</p>
-          </div>
-          <div className='errorP'>
-            <p>{state.errors.confirmPass}</p>
-          </div> 
-        </div>
+          <div>
+            <div className='inputDiv'>
+              <label htmlFor='confirmPass'>Confirm Password:</label>
+              <input type='password' id='confirmPass' name='confirmPass' onChange={handleChange} onBlur={handleBlur} value={state.confirmPass}  required />
+            </div>
 
-        <div>
-          <div className='inputDiv'>
-            <label htmlFor='confirmPass'>Confirm Password:</label>
-            <input type='password' id='confirmPass' name='confirmPass' onChange={handleChange} onBlur={handleBlur} value={state.confirmPass}  required />
+            <div className='errorP'>
+              <p>{state.errors.confirmPass}</p>
+            </div> 
           </div>
 
-          <div className='errorP'>
-            <p>{state.errors.confirmPass}</p>
-          </div> 
-        </div>
+          <button className='inputDiv'>Sign Up</button>
+        </form>
+        <div className='errorP' >
+            <p>{state.res}</p>
+          </div>
 
-        <button className='inputDiv'>Sign Up</button>
-      </form>
-      <div className='errorP' >
-          <p>{state.res}</p>
-        </div>
-
-      <p className='gotAccount centerText'>Already have an account?<button><NavLink to='/Login'>Login</NavLink></button></p>
-    </section> 
+        <p className='gotAccount centerText'>Already have an account?<button><NavLink to='/Login'>Login</NavLink></button></p>
+      </section> 
     </main>
 )
 }
@@ -173,8 +176,11 @@ export const LoginView = () => {
     setState({...state, [e.target.name]: e.target.value});
   }
 
+  let loaderRefTwo = useRef();
   const handleSubmit =  (e) => {
     e.preventDefault();
+
+    loaderRefTwo.current.className = 'loader';
 
     // Sends User Inputs to API for login
     fetch('/api/auth/login', {
@@ -189,33 +195,43 @@ export const LoginView = () => {
       if(res.code !== 200) {
         passWordRef.current.innerHTML += `<p>${res.error.message}</p>`;
         window.location.reload(true);
-      } 
+        loaderRefTwo.current.className = 'none';
+      } else {
+        window.location = '/'
+      }
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      console.log(err);
+      window.location = '/';
+    });
   }
 
   let formContainerClass = window.innerWidth > 600 ? 'formContainer formContainerPC' : 'formContainer';
   return (
-    <section className={formContainerClass}>
-      <NavLink to='/' className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></NavLink>
-      <form onSubmit={handleSubmit}>
+    <main className='authView'>
+      <div className='none' ref={loaderRefTwo}><img src={loader}  alt='Loader gif' /></div>
+
+      <section className={formContainerClass}>
+        <NavLink to='/' className='iconDiv'><img src={icon} className='icon' alt='Chartit icon' /></NavLink>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor='loginEmail'>Email:</label>
+            <input placeholder='example@example.com' type='email' id='loginEmail' name='email' onChange={handleChange} value={state.email} pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" required/>
+          </div>
+
+          <div ref={passWordRef}>
+            <label htmlFor='passWord'>Password:</label>
+            <input type='password' id='password' name='password' onChange={handleChange} value={state.password} required />
+          </div>
+
+          <button>Login</button>
+        </form>
+
         <div>
-          <label htmlFor='loginEmail'>Email:</label>
-          <input placeholder='example@example.com' type='email' id='loginEmail' name='email' onChange={handleChange} value={state.email} pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" required/>
+          <p className='gotAccount centerText'>Don't have an account?<button><NavLink to='/SignUp'>Sign up</NavLink></button></p>
+          <NavLink to='#'><p className='centerText'>Forgotten password?</p></NavLink>
         </div>
-
-        <div ref={passWordRef}>
-          <label htmlFor='passWord'>Password:</label>
-          <input type='password' id='password' name='password' onChange={handleChange} value={state.password} required />
-        </div>
-
-        <button>Login</button>
-      </form>
-
-      <div>
-        <p className='gotAccount centerText'>Don't have an account?<button><NavLink to='/SignUp'>Sign up</NavLink></button></p>
-        <NavLink to='#'><p className='centerText'>Forgotten password?</p></NavLink>
-      </div>
-    </section>  
+      </section>
+    </main>
   )
 }

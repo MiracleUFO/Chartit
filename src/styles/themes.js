@@ -1,4 +1,5 @@
 import night from '../imgs/night.jpg';
+import formBg from '../imgs/formBg.jpg';
 
 export const lightTheme = {
 	text: `#000`,
@@ -7,6 +8,7 @@ export const lightTheme = {
 	borderBottom: `1px solid #eee`,
 	navBg: `purple`,
 	navBgMobile: `transparent`,
+	authViewBg: `url(${formBg})`,
 	heroImgBg: `#E0E9FA`,
 	heroTextColor: `rgba(31,35,65,0.99)`,
 	mobileHeroTextColor: `black`,
@@ -28,9 +30,10 @@ export const darkTheme = {
 	borderBottom: `none`,
 	navBg: `transparent`,
 	navBgMobile: `transparent`,
+	authViewBg: `url(${formBg})`,
 	heroImgBg: `transparent`,
 	heroTextColor: `white`,
-	mobileHeroTextColor: `white`,
+	mobileHeroTextColor: `whitea`,
 	transparentButtonColorBg: `#a45bd6`,
 	transparentButtonColor: `#E0E9FA`,
 	transparentButtonBgHover: `#7447d1`,

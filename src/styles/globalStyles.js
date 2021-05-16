@@ -142,11 +142,16 @@ export const GlobalStyles = createGlobalStyle`
 	.formContainer .iconDiv {
 		position: fixed;
 		top: 50px;
+		background-color: teal;
+    z-index: 20;
 	}
 	.formContainer .icon {
-		display: block;
+		/*display: block;
 		width: 28%;
-		margin: 0 auto;
+		margin: 0 auto;*/
+		display: block;
+    width: 41%;
+    margin-left: 25vw;
 	}
 	.formContainer {
 		background: teal;
@@ -162,12 +167,12 @@ export const GlobalStyles = createGlobalStyle`
 		position: relative;
 		width: 40%;
 		margin: 10vh auto 0;
-		border-radius: 20px;
+		border-radius: 20px 20px 0 0;
 	}
 	.formContainer form, .formContainerPC form {
 		display: flex;
 		flex-direction: column;
-		margin-top: 140px;
+		margin-top: 120px;
 	}
 	.formContainerPC form {
 		margin: 0 auto;
@@ -188,6 +193,8 @@ export const GlobalStyles = createGlobalStyle`
 		width: 50vw;
 	}
 	.formContainer form input {
+		width: 45vw;
+    padding: 4px 0;
 		border: none;
 		border-radius: 5px;
 		padding-left: 10px;
@@ -230,12 +237,20 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	@media screen and (min-width: 800px) {
+		.authView {
+			background: ${({theme}) => theme.authViewBg};
+		}
 		.formContainer	.iconDiv {
 			position: static;
 			width: 35vw;
 			margin: 45px auto 20px;
 		}
-		.formContainer	.inputDiv {
+		.formContainer .icon {
+			margin: 50px auto;
+    	margin-left: 32%;
+    	width: 30%;ang
+		}
+		.formContainer .inputDiv {
 			margin: 0 auto;
 			width: 90%;
 		}
@@ -243,7 +258,7 @@ export const GlobalStyles = createGlobalStyle`
 			margin: 20px auto 50px;
 		}
 		.formContainer form input {
-			width: 100%;
+			width: 95%;
 		}
 	}
 
