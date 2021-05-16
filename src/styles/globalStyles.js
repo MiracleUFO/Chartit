@@ -266,7 +266,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#hero > section > h1, #hero > section > p {
 		margin: 2px;
-		color: ${({theme}) => theme.heroTextColor};
+		color: ${({theme}) => theme.mobileHeroTextColor};
 	}
 	#hero > section > h1 {
 		font-size: 2.8rem;
@@ -350,14 +350,18 @@ export const GlobalStyles = createGlobalStyle`
 			width: 85%;
 			height: fit-content;
 		}
+		#hero > section > h1 {
+			font-size: 2.47rem;
+		}
 		#hero > section > h1, #hero > section:first-of-type p {
+			color: ${({theme}) => theme.heroTextColor};
 			width: 45rem;
 		}
 		#hero > section > h1 span, #hero > section:first-of-type p span {
 			display: inline;
 		}
 		#hero > section:first-of-type p {
-			font-size: 1.09rem;
+			font-size: 1.2rem;
 			line-height: 1.5rem;
 			font-weight: 900;
 			width: 37rem;
