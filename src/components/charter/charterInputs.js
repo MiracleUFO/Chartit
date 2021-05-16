@@ -251,7 +251,7 @@ export const CharterInputs = () => {
 
         { !picked ? 
         <div>
-          <img src={sun} />
+          <img src={sun} alt='Painted sun' />
         </div> 
         : null }
 

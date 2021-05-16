@@ -111,13 +111,13 @@ export const CharterPicker = () => {
             <div>
               <input type='checkbox' name='histogram' value={state.histogram} checked={state.histogram} onChange={handleChange} />
               <label>Histogram</label>
-              <div className='tooltip-wrapper'><img src={histogramTip} alt='Histogram chart tooltip' /></div>
+              <div className='tooltip-wrapper'><img src={histogramTip} alt='Histogram tooltip' /></div>
             </div><br />
 
             <div>
               <input type='checkbox' name='ogive' value={state.ogive} checked={state.ogive} onChange={handleChange} />
               <label>Ogive</label>
-              <div className='tooltip-wrapper'><img src={ogiveTip} alt='Ogive chart tooltip' /></div>
+              <div className='tooltip-wrapper'><img src={ogiveTip} alt='Ogive tooltip' /></div>
             </div><br />
 
           </form>
