@@ -119,7 +119,7 @@ export const CharterInputs = () => {
           newChartPicks[k] = false;
         }
 
-        Object.entries(iter).map(item => {
+        Object.entries(iter).forEach(item => {
           if (!v) {
             delete iter[k];
           }
@@ -180,7 +180,7 @@ export const CharterInputs = () => {
         return false;
       }   
     }
-  }, [chartPicks]);
+  }, [chartPicks]);   // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
   //Changes submit button style when data is inputted
@@ -193,7 +193,7 @@ export const CharterInputs = () => {
         setState({...state, submitBtnClass: submitBtnClass});
       }
     }
-  }, [state.inputs])
+  }, [state.inputs]);   // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
   //Clears input fields on submit
@@ -213,7 +213,7 @@ export const CharterInputs = () => {
         });
       }
     } 
-  }, [state.dataPairs])
+  }, [state.dataPairs]);    // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
   //Clears input fields and changes submit button style on next
@@ -230,7 +230,7 @@ export const CharterInputs = () => {
         });
       }
     } 
-  }, [state.controls])
+  }, [state.controls]);   // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
   //Sends charting to redux store for subscribed components
@@ -242,7 +242,7 @@ export const CharterInputs = () => {
         nextBtnClass: !state.charting ? 'submit-btn-active' : 'submit-btn',
       });
     }
-  }, [state.charting])
+  }, [state.charting]);   // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
   //Additional styles based on store
