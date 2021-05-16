@@ -276,7 +276,7 @@ export const GlobalStyles = createGlobalStyle`
 		padding-top: 4.7vh;
 		text-transform: capitalize;
 	}
-	#hero > section > h1 span {
+	#hero > section > h1 span, #hero > section:first-of-type p span {
 			display: none;
 	}
 	#hero > section:first-of-type p {
@@ -285,7 +285,7 @@ export const GlobalStyles = createGlobalStyle`
 		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
-		width: 81vw;
+		width: 82vw;
 	}
 	#hero-text {
 		height: 85vh;
@@ -353,7 +353,7 @@ export const GlobalStyles = createGlobalStyle`
 		#hero > section > h1, #hero > section:first-of-type p {
 			width: 45rem;
 		}
-		#hero > section > h1 span {
+		#hero > section > h1 span, #hero > section:first-of-type p span {
 			display: inline;
 		}
 		#hero > section:first-of-type p {
