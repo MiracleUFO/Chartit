@@ -4,7 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 	body {
 		background: ${({theme}) => theme.background};
 		color: ${({theme}) => theme.text};
-		font-family: 'Nunito', Merriweather, Helvetica, sans-serif;
+		font-family: 'Nunito', Helvetica, sans-serif;
 		transition: background 2s, color 2s, display 5s;
 	}
 	* {
@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
 	.none {
 		display: none;
 	}
-	h1 {
+	h1, #charter-wrapper-wrapper > h2 {
 		font-family: 'Montserrat';
 		color: ${({theme}) => theme.heroTextColor};
 	}
@@ -282,13 +282,12 @@ export const GlobalStyles = createGlobalStyle`
 	#hero > section:first-of-type p {
 		font-family: 'Roboto';
 		font-weight: 900;
-		font-size: 1rem;
+		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
 		width: 90vw;
 	}
 	#hero-text {
-		margin-top: 30px;
 		height: 85vh;
 	}
 	#hero-img {
@@ -359,7 +358,7 @@ export const GlobalStyles = createGlobalStyle`
 			display: inline;
 		}
 		#hero > section:first-of-type p {
-			font-size: 1.05rem;
+			font-size: 1.09rem;
 			line-height: 1.5rem;
 			font-weight: 900;
 			width: 37rem;
@@ -372,6 +371,9 @@ export const GlobalStyles = createGlobalStyle`
 		#hero .buttonDiv a:nth-of-type(2) button {
 			background: ${({theme}) => theme.transparentButtonColorBg};
 			color: ${({theme}) => theme.transparentButtonColor};
+		}
+		#hero-text {
+			margin-top: 30px;
 		}
 		#hero-img:before {
 			height: 0;
@@ -440,6 +442,9 @@ export const GlobalStyles = createGlobalStyle`
 	#first-charter-element form > div:hover .tooltip-wrapper  {
 		display: block;
 	}
+	#first-charter-element form:hover h2  {
+		display: none;
+	}
 	.tooltip-wrapper {
 		margin-left: 10px;
 		display: none;
@@ -485,18 +490,24 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	.clear-btn {
 		display: inline;
-		font-weight: 900;
+		font-weight: 600;
 		padding-right: 10px;
 		cursor: pointer;
 	}
-	.clear-btn:hover, .charter-element form div:hover {
-		font-weight: 900;
+	.clear-btn:hover {
+		font-weight: 800;
+	}
+ .charter-element form div:hover {
+		font-weight: 600;
 	}
 	.hidden {
 		overflow-y: hidden;
 	}
 
 	@media screen and (min-width: 800px) {
+		#charter-wrapper-wrapper {
+			padding-top: 0;
+		}
 		#charter-wrapper {
 			display: flex;
 			justify-content: space-around;
@@ -509,13 +520,6 @@ export const GlobalStyles = createGlobalStyle`
 			margin-bottom: 50px;
 			font: bolder 2.8rem 'Montserrat';
 		}
-		.clear-btn {
-			display: inline;
-			font-weight: 400;
-		}
-		.clear-btn:hover {
-			font-weight: 900;
-		}	
 	}
 
 /* - - - - - Footer - - - - */

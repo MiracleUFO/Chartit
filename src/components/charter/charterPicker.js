@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { sendPicks } from '../../redux/actions/sendPicks';
+import { sendCharted } from '../../redux/actions/sendCharted';
 import pieTip from '../../imgs/pie-tip.jpg';
 import barTip from '../../imgs/bar-tip.jpg';
 import histogramTip from '../../imgs/histogram-tip.jpg';
@@ -19,15 +20,19 @@ export const CharterPicker = () => {
     state[name] ? setState({...state, [name]: false}) : setState({...state, [name]: true});
   }
 
-  let handleClear = (e) => {
+  let clear = () => {
     const objectMap = (obj, fn) =>
       Object.fromEntries(
       Object.entries(obj).map(
       ([k, v], i) => [k, fn(v, k, i)]
       )
-    )
+    );
     let newState = objectMap(state, v => false);
     setState(newState);
+  }
+
+  let handleClear = (e) => {
+    clear();
   }
 
   let picked = state.pieChart || state.barChart || state.histogram || state.ogive;
@@ -38,8 +43,8 @@ export const CharterPicker = () => {
     e.preventDefault();
     if (picked) {
       dispatch(sendPicks(state));
-      document.getElementById('first-charter-element').blur();
-      document.getElementById('second-charter-element').focus();
+      dispatch(sendCharted(false));
+      clear();
       
       if (window.innerWidth <= 800) {
         //let top = window.pageYOffset + 500;
