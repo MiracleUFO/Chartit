@@ -269,7 +269,7 @@ export const GlobalStyles = createGlobalStyle`
 		color: ${({theme}) => theme.heroTextColor};
 	}
 	#hero > section > h1 {
-		font-size: 2.47rem;
+		font-size: 2.8rem;
 		font-weight: 600;
 		line-height: 3.7rem;
 		letter-spacing: 1.2px;
@@ -285,7 +285,7 @@ export const GlobalStyles = createGlobalStyle`
 		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
-		width: 90vw;
+		width: 81vw;
 	}
 	#hero-text {
 		height: 85vh;
@@ -315,13 +315,12 @@ export const GlobalStyles = createGlobalStyle`
 		color: #E0E9FA;
 	}
 	#transparent-button:hover {
-		background: ${({theme}) => theme.transparentButtonBgHover};
 		padding: 0.9rem 1.7rem;;
 	}
 
 	@media screen and (max-height: 600px) {
 		#hero > section > h1 {
-			font-size: 2rem;
+			font-size: 2.1rem;
 			line-height: 3.2rem;
 		}
 		#hero-text {
@@ -371,6 +370,9 @@ export const GlobalStyles = createGlobalStyle`
 		#transparent-button {
 			background: ${({theme}) => theme.transparentButtonColorBg};
 			color: ${({theme}) => theme.transparentButtonColor};
+		}
+		#transparent-button:hover {
+			background: ${({theme}) => theme.transparentButtonBgHover};
 		}
 		#hero-text {
 			margin-top: 30px;
