@@ -3,9 +3,22 @@ import heroImg from '../imgs/chartit-hero-img.png';
 import heroImgNoBg from '../imgs/chartit-hero-img-nobg.png';
 
 export const Hero = (props) => {
+
+  let handleScroll = (e) => {
+    if (window.innerWidth <= 800) {
+      var top = document.getElementById('charter-wrapper-wrapper').getBoundingClientRect().top + window.scrollY;
+      window.scroll({
+        top: top,
+        left: 100,
+        behavior: 'smooth'
+      });
+    } 
+  }
+
   return (
     <section>
       <section id='hero'>
+
         <section id='hero-text'>
           <h1><span>Creating</span> downloadable charts for individuals, schools, and businesses</h1>
           <p>
@@ -14,7 +27,7 @@ export const Hero = (props) => {
           </p>
           <div className='flex buttonDiv'>
             <NavLink to='/SignUp'><button>Sign up</button></NavLink>
-            <a href='#charter-wrapper-wrapper'><button className='transparent-button'>Get Started</button></a>
+            <button className='transparent-button' id='transparent-button' onClick={handleScroll}>Get Started</button>
           </div>
         </section>
 
@@ -26,6 +39,7 @@ export const Hero = (props) => {
           <img src={heroImgNoBg} alt='People sitting on a pie chart' />
           }
         </section>
+
       </section>
     </section>
   )

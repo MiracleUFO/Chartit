@@ -5,17 +5,28 @@ const initState = {
     histogram: false,
     ogive: false
   },
-  charted: false
+  charting: false,
+  dataPairs: {
+    pieChartPairs: [],
+    barChartPairs: [],
+    histogramPairs: [],
+    ogivePairs: []
+  }
 }
 
 const rootReducer = (state = initState, action) => {
   if (action.type === "SEND_PICKS") {
-    const { playerDeets, ...newState } = state; //Remove previous picked charts value immutably
+    const { chartPicks, ...newState } = state; //Remove previous picked charts value immutably
       return Object.assign({}, newState, {chartPicks: action.payload}) //Adds new one from action payload
     }
   
-    if (action.type === "SEND_CHARTED") {
-      return Object.assign({}, state, {charted: action.payload});
+    if (action.type === "SEND_CHARTING") {
+      return Object.assign({}, state, {charting: action.payload});
+    }
+
+    if (action.type === "SEND_DATAPAIRS") {
+      const { dataPairs, ...newState } = state; //Remove previous picked charts value immutably
+      return Object.assign({}, newState, {dataPairs: action.payload}) //Adds new one from action payload
     }
 
     return state;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { sendCharted } from '../../redux/actions/sendCharted';
+import { sendCharting } from '../../redux/actions/sendCharting';
+import { sendDataPairs } from '../../redux/actions/sendDataPairs';
 import sun from '../../imgs/sun.png';
 
 
@@ -9,6 +10,11 @@ export const CharterInputs = () => {
   //Gets selected charts from redux store
   let selectPicks = (store) => store.chartPicks;
   let chartPicks = useSelector(selectPicks);
+
+
+  //Gets data pairs from redux store
+  let selectDataPairs = (store) => store.dataPairs;
+  let dataPairs = useSelector(selectDataPairs);
 
 
   //Initializes useDispatch to allow sending data to redux store
@@ -23,7 +29,7 @@ export const CharterInputs = () => {
       histogram: false,
       ogive: false, 
     },
-    charted: false,
+    charting: false,
     inputted: false,
     i: 0,
     nextBtnClass: 'submit-btn',
@@ -38,15 +44,11 @@ export const CharterInputs = () => {
       ogiveLabel: '',
       ogiveValue: ''
     },
-    dataPairs: {
-      pieChartPairs: [],
-      barChartPairs: [],
-      histogramPairs: [],
-      ogivePairs: []
-    }
+    dataPairs: {...dataPairs}
   });
   
 
+  //Helper function to immutably change all an object's properties to a value
   const objectMap = (obj, fn) =>
     Object.fromEntries(
       Object.entries(obj).map(([k, v], i) => [k, fn(v, k, i)])
@@ -102,7 +104,7 @@ export const CharterInputs = () => {
 
   //Displays next picked chart using state.controls
   let handleNext = () => {
-    if (state.inputted && !state.charted) {
+    if (state.inputted && !state.charting) {
       let iter = {...chartPicks};
       let newChartPicks = {...state.chartPicks};
       let newControls = objectMap(state.controls, v => false); //Sets all state.controls properties to false
@@ -128,13 +130,30 @@ export const CharterInputs = () => {
             return false;
           } 
 
-          if (i === Object.keys(iter).length || i === 0) {
-            setState({...state, charted: true, chartPicks: chartPicks, i: 0});
+          if (i === Object.keys(iter).length || Object.keys(iter).length === 1) {
+            setState({...state, charting: true, chartPicks: newChartPicks, i: 0});
+            dispatch(sendDataPairs(state.dataPairs));
+
+            //Scrolls to charterFinal
+            if (window.innerWidth <= 800) {
+              var top = document.getElementById('third-charter-element').getBoundingClientRect().top + window.scrollY;
+              window.scroll({
+                top: top,
+                left: 100,
+                behavior: 'smooth'
+              });
+            } 
             return false;
           }     
         }  
       }
     }
+  }
+
+
+  //Displays previous picked chart using state.controls
+  let handleBack = (e) => {
+
   }
 
 
@@ -146,7 +165,14 @@ export const CharterInputs = () => {
       if (v) {
         let newControls = {...newState};
         newControls[k] = true;
-        setState({...state, controls: newControls, chartPicks: chartPicks});
+        setState({
+          ...state,
+          controls: newControls,
+          inputted: false,
+          charting: false,
+          i: 0,
+          chartPicks: chartPicks
+        });
         return false;
       }   
     }
@@ -203,16 +229,16 @@ export const CharterInputs = () => {
   }, [state.controls])
 
 
-  //Sends charted to redux store for subscribed components
+  //Sends charting to redux store for subscribed components
   useEffect(() => {
-    if (state.charted) {
-      dispatch(sendCharted(state.charted));
+    if (state.charting) {
+      dispatch(sendCharting(state.charting));
       setState({
         ...state,
-        nextBtnClass: !state.charted ? 'submit-btn-active' : 'submit-btn',
+        nextBtnClass: !state.charting ? 'submit-btn-active' : 'submit-btn',
       });
     }
-  }, [state.charted])
+  }, [state.charting])
 
 
   //Additional styles based on store
@@ -277,8 +303,9 @@ export const CharterInputs = () => {
 
           { picked ?
           <div>
-            <span className='clear-btn'>Back</span>
-            <button className={state.nextBtnClass} onClick={handleNext}>Next</button></div>
+            <span className='clear-btn' onClick={handleBack}>Back</span>
+            <button className={state.nextBtnClass} onClick={handleNext}>Next</button>
+          </div>
           : null }
 
         </div>  

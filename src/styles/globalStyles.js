@@ -310,11 +310,11 @@ export const GlobalStyles = createGlobalStyle`
 	#hero .buttonDiv a:first-of-type button {
 		margin-right: 15px;
 	}
-	#hero .buttonDiv a:nth-of-type(2) button {
+	#transparent-button {
 		background: blueviolet;
 		color: #E0E9FA;
 	}
-	#hero .buttonDiv a:nth-of-type(2) button:hover {
+	#transparent-button:hover {
 		background: ${({theme}) => theme.transparentButtonBgHover};
 		padding: 0.9rem 1.7rem;;
 	}
@@ -368,7 +368,7 @@ export const GlobalStyles = createGlobalStyle`
 		#hero .buttonDiv {
 			display: block;
 		}
-		#hero .buttonDiv a:nth-of-type(2) button {
+		#transparent-button {
 			background: ${({theme}) => theme.transparentButtonColorBg};
 			color: ${({theme}) => theme.transparentButtonColor};
 		}
@@ -482,6 +482,16 @@ export const GlobalStyles = createGlobalStyle`
 		left: 20%;
 		margin-top: 20px;
 	}
+	#third-charter-element-flex {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+	}
+	#preview-icon {
+		width: 50vw;
+    height: 45vw;
+	}
 	.submit-btn {
 		background: ${({theme}) => theme.submitBtn};
 	}
@@ -519,6 +529,10 @@ export const GlobalStyles = createGlobalStyle`
 		#charter-wrapper-wrapper > h2 {
 			margin-bottom: 50px;
 			font: bolder 2.8rem 'Montserrat';
+		}
+		#preview-icon {
+			width: 17vw;
+			height: 15vw;
 		}
 	}
 
