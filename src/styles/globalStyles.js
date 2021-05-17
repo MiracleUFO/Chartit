@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
 		display: none;
 	}
 	h1, #charter-wrapper-wrapper > h2 {
-		font-family: 'Montserrat';
+		font-family: 'Inter';
 		color: ${({theme}) => theme.heroTextColor};
 	}
 	.flex {
@@ -285,7 +285,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#hero > section > h1 {
 		font-size: 2.8rem;
-		font-weight: 600;
+		font-weight: 800;
 		line-height: 3.7rem;
 		letter-spacing: 1.2px;
 		padding-top: 4.7vh;
@@ -295,8 +295,8 @@ export const GlobalStyles = createGlobalStyle`
 			display: none;
 	}
 	#hero > section:first-of-type p {
-		font-family: 'Roboto';
-		font-weight: 900;
+		font-family: 'Inter';
+		font-weight: 800;
 		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
@@ -335,7 +335,7 @@ export const GlobalStyles = createGlobalStyle`
 
 	@media screen and (max-height: 600px) {
 		#hero > section > h1 {
-			font-size: 2.1rem;
+			font-size: 2.3rem;
 			line-height: 3.2rem;
 		}
 		#hero-text {
@@ -370,7 +370,7 @@ export const GlobalStyles = createGlobalStyle`
 		}
 		#hero > section > h1, #hero > section:first-of-type p {
 			color: ${({theme}) => theme.heroTextColor};
-			width: 45rem;
+			width: 42rem;
 		}
 		#hero > section > h1 span, #hero > section:first-of-type p span {
 			display: inline;
@@ -549,7 +549,7 @@ export const GlobalStyles = createGlobalStyle`
 		}
 		#charter-wrapper-wrapper > h2 {
 			margin-bottom: 50px;
-			font: bolder 2.8rem 'Montserrat';
+			font: bolder 2.8rem 'Inter';
 		}
 		#preview-icon {
 			width: 17vw;
