@@ -18,7 +18,7 @@ export const Hero = (props) => {
       <section id='hero'>
 
         <section id='hero-text'>
-          <h1><span>Creating</span> downloadable charts for individuals, schools, and businesses</h1>
+          <h1><span>Creating</span> downloadable charts for individuals, and businesses</h1>
           <p>
             Chartit makes it faster and easier <span>for businesses, schools and individuals</span> to visualize data 
             in clean, customizable, downloadable charts.

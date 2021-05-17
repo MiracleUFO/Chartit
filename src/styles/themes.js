@@ -20,7 +20,10 @@ export const lightTheme = {
 	charterElementBgHover: `#6C49B4`,
 	footerBg: `slategrey`,
 	submitBtn: `#FFB347`,
-	submitBtnActive: `orange`
+	submitBtnActive: `orange`,
+	heroWidth: `revert`,
+	heroMargin: `0 0 0 2vw`,
+	navMargin: `revert`,
 }
 
 export const darkTheme = {
@@ -42,5 +45,8 @@ export const darkTheme = {
 	charterElementBgHover: `blueviolet`,
 	footerBg: `black`,
 	submitBtn: `#FF7961`,
-	submitBtnActive: `tomato`
+	submitBtnActive: `tomato`,
+	heroWidth: `90vw`,
+	heroMargin: `0 auto`,
+	navMargin: `0 2vw`,
 }

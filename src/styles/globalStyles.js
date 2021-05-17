@@ -37,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
 		display: none;
 	}
 	.icon-mobile, .icon {
-		width: 75%;
+		width: 90%;
 	}
 	.icon {
 		display: none;
@@ -107,6 +107,7 @@ export const GlobalStyles = createGlobalStyle`
 		nav {
 			border-bottom: none;
 			padding: 0 0 0 4vw;
+			margin: ${({theme}) => theme.navMargin};
 		}
 		nav > section {
 			width: 40.4vw;
@@ -284,8 +285,8 @@ export const GlobalStyles = createGlobalStyle`
 		color: ${({theme}) => theme.mobileHeroTextColor};
 	}
 	#hero > section > h1 {
-		font-size: 2.8rem;
-		font-weight: 800;
+		font-size: 2.4rem;
+		font-weight: 700;
 		line-height: 3.7rem;
 		letter-spacing: 1.2px;
 		padding-top: 4.7vh;
@@ -300,7 +301,7 @@ export const GlobalStyles = createGlobalStyle`
 		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
-		width: 82vw;
+		width: 81vw;
 	}
 	#hero-text {
 		height: 85vh;
@@ -349,7 +350,8 @@ export const GlobalStyles = createGlobalStyle`
 	@media screen and (min-width: 800px) {
 		#hero {
 			height: 90vh;
-			margin: 0 0 0 2vw;
+			margin: ${({theme}) => theme.heroMargin};
+			width: ${({theme}) => theme.heroWidth};
 			flex-direction: row;
 			justify-content: center;
 		}
@@ -366,7 +368,9 @@ export const GlobalStyles = createGlobalStyle`
 			height: fit-content;
 		}
 		#hero > section > h1 {
-			font-size: 2.47rem;
+			font-size: 2.2rem;
+			font-weight: 800;
+			margin-bottom: 7px;
 		}
 		#hero > section > h1, #hero > section:first-of-type p {
 			color: ${({theme}) => theme.heroTextColor};
@@ -376,9 +380,9 @@ export const GlobalStyles = createGlobalStyle`
 			display: inline;
 		}
 		#hero > section:first-of-type p {
-			font-size: 1.2rem;
-			line-height: 1.5rem;
-			font-weight: 900;
+			font-size: 1.1rem;
+			line-height: 1.7rem;
+			font-weight: 700;
 			width: 37rem;
 			margin-top: 7px;
 			letter-spacing: 2.5px
