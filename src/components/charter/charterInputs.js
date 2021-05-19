@@ -176,6 +176,7 @@ export const CharterInputs = () => {
               let newKey = keysArr[keysArr.indexOf(ky) - 1];
               newControls[newKey] = true;
               setState({...state, controls: newControls});
+              console.log(vl);
               return false;
             }
           }
