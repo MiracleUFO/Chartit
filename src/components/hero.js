@@ -5,7 +5,7 @@ import heroImgNoBg from '../imgs/chartit-hero-img-nobg.png';
 export const Hero = (props) => {
 
   let handleScroll = (e) => {
-    var top = document.getElementById('charter-wrapper-wrapper').getBoundingClientRect().top + window.scrollY + 50;
+    var top = document.getElementById('charter-wrapper-wrapper').getBoundingClientRect().top + window.scrollY + 70;
     window.scroll({
       top: top,
       left: 100,
