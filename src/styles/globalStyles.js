@@ -37,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
 		display: none;
 	}
 	.icon-mobile, .icon {
-		width: 90%;
+		width: 87%;
 	}
 	.icon {
 		display: none;
@@ -300,7 +300,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#hero > section:first-of-type p {
 		font-family: 'Inter';
-		font-weight: 700;
+		font-weight: 600;
 		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
