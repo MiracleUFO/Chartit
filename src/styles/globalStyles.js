@@ -300,7 +300,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#hero > section:first-of-type p {
 		font-family: 'Inter';
-		font-weight: 600;
+		font-weight: 400;
 		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
