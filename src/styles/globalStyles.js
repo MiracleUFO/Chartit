@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
 		display: none;
 	}
 	h1, #charter-wrapper-wrapper > h2 {
-		font-family: 'Inter';
+		font-family: 'Montserrat';
 		color: ${({theme}) => theme.heroTextColor};
 	}
 	.flex {
@@ -44,6 +44,9 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	
 	@media screen and (min-width: 800px) {
+		h1, #charter-wrapper-wrapper > h2 {
+			font-family: 'Inter';
+		}
 		.icon, .icon-container {
 			display: inline-block;
 		}
@@ -285,7 +288,7 @@ export const GlobalStyles = createGlobalStyle`
 		color: ${({theme}) => theme.mobileHeroTextColor};
 	}
 	#hero > section > h1 {
-		font-size: 2.4rem;
+		font-size: 2.25rem;
 		font-weight: 700;
 		line-height: 3.7rem;
 		letter-spacing: 1.2px;
@@ -297,7 +300,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#hero > section:first-of-type p {
 		font-family: 'Inter';
-		font-weight: 800;
+		font-weight: 700;
 		font-size: 1.15rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
@@ -336,7 +339,7 @@ export const GlobalStyles = createGlobalStyle`
 
 	@media screen and (max-height: 600px) {
 		#hero > section > h1 {
-			font-size: 2.3rem;
+			font-size: 2rem;
 			line-height: 3.2rem;
 		}
 		#hero-text {
@@ -385,7 +388,7 @@ export const GlobalStyles = createGlobalStyle`
 			font-weight: 700;
 			width: 37rem;
 			margin-top: 7px;
-			letter-spacing: 2.5px
+			letter-spacing: 2px
 		}
 		#hero .buttonDiv {
 			display: block;
@@ -516,6 +519,9 @@ export const GlobalStyles = createGlobalStyle`
 	#preview-icon {
 		width: 50vw;
     height: 45vw;
+	}
+	SplideSlide {
+		display: none;
 	}
 	.submit-btn {
 		background: ${({theme}) => theme.submitBtn};

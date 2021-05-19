@@ -21,6 +21,7 @@ export const CharterInputs = () => {
   let dispatch = useDispatch();
 
 
+  //Component state
   const [state, setState] = useState({
     chartPicks: {...chartPicks},
     controls: {
@@ -157,7 +158,30 @@ export const CharterInputs = () => {
 
   //Displays previous picked chart using state.controls
   let handleBack = (e) => {
+    if (state.inputted && !state.charting) { 
+      let newControls = objectMap(state.controls, v => false); //Sets all state.controls properties to false
+      let iter = {...chartPicks};
+      let keysArr = [];
 
+      for (const [key, val] of Object.entries(iter)) {
+        if (!val) {
+          delete iter[key];
+        } else keysArr.push(key);
+      }
+
+      for (const [k, v] of Object.entries(state.controls)) {
+        if (v) {
+          for (const [ky, vl] of Object.entries(iter)) {
+            if (k === ky) {
+              let newKey = keysArr[keysArr.indexOf(ky) - 1];
+              newControls[newKey] = true;
+              setState({...state, controls: newControls});
+              return false;
+            }
+          }
+        }
+      }
+    }
   }
 
 
@@ -251,68 +275,68 @@ export const CharterInputs = () => {
 
 
   return (
-      <section className={sectionClass} id='second-charter-element'>
+    <section className={sectionClass} id='second-charter-element'>
 
-        { !picked ? 
-        <div>
-          <img src={sun} alt='Painted sun' />
-        </div> 
+      { !picked ? 
+      <div>
+        <img src={sun} alt='Painted sun' />
+      </div> 
+      : null }
+
+      <div id='second-charter-element-form-wrapper'>
+
+        { state.controls.pieChart ?
+        <form id='pie-form' data-name='pieChartPairs' onSubmit={handleSubmit}>
+          <div>
+            <h2>Pie chart</h2>
+            <input placeholder='Label' value={state.inputs.pieChartLabel} name='pieChartLabel' onChange={handleInput} required /> <br /> 
+            <input placeholder='Value' value={state.inputs.pieChartValue} name='pieChartValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
+            <button className={state.submitBtnClass}>Submit</button>
+          </div> 
+        </form>
         : null }
 
-        <div id='second-charter-element-form-wrapper'>
-
-          { state.controls.pieChart ?
-          <form id='pie-form' data-name='pieChartPairs' onSubmit={handleSubmit}>
-            <div>
-              <h2>Pie chart</h2>
-              <input placeholder='Label' value={state.inputs.pieChartLabel} name='pieChartLabel' onChange={handleInput} required /> <br /> 
-              <input placeholder='Value' value={state.inputs.pieChartValue} name='pieChartValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
-              <button className={state.submitBtnClass}>Submit</button>
-            </div> 
-          </form>
-          : null }
-
-          { state.controls.barChart ?
-          <form id='bar-form' data-name='barChartPairs' onSubmit={handleSubmit}>
-            <div>
-              <h2>Bar chart</h2>
-              <input placeholder='Label' value={state.inputs.barChartLabel} name='barChartLabel' onChange={handleInput} required /> <br /> 
-              <input placeholder='Value' value={state.inputs.barChartValue} name='barChartValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
-              <button className={state.submitBtnClass}>Submit</button>
-            </div>
-          </form>
-          : null }
-
-          { state.controls.histogram ?
-          <form id='histogram-form' data-name='histogramPairs' onSubmit={handleSubmit}>
-            <div>
-              <h2>Histogram</h2>
-              <input placeholder='Label' value={state.inputs.histogramLabel} name='histogramLabel' onChange={handleInput} required /> <br /> 
-              <input placeholder='Value' value={state.inputs.histogramValue} name='histogramValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
-              <button className={state.submitBtnClass}>Submit</button>
-            </div>
-          </form>
-          : null }
-
-          { state.controls.ogive ?
-          <form id='ogive-form' data-name='ogivePairs' onSubmit={handleSubmit}>
-            <div>
-              <h2>Ogive</h2>
-              <input placeholder='Label' value={state.inputs.ogiveLabel} name='ogiveLabel' onChange={handleInput} required /> <br /> 
-              <input placeholder='Value' value={state.inputs.ogiveValue} name='ogiveValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
-              <button className={state.submitBtnClass}>Submit</button>
-            </div>
-          </form>
-          : null }
-
-          { picked ?
+        { state.controls.barChart ?
+        <form id='bar-form' data-name='barChartPairs' onSubmit={handleSubmit}>
           <div>
-            <span className='clear-btn' onClick={handleBack}>Back</span>
-            <button className={state.nextBtnClass} onClick={handleNext}>Next</button>
+            <h2>Bar chart</h2>
+            <input placeholder='Label' value={state.inputs.barChartLabel} name='barChartLabel' onChange={handleInput} required /> <br /> 
+            <input placeholder='Value' value={state.inputs.barChartValue} name='barChartValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
+            <button className={state.submitBtnClass}>Submit</button>
           </div>
-          : null }
+        </form>
+        : null }
 
-        </div>  
-        </section>
+        { state.controls.histogram ?
+        <form id='histogram-form' data-name='histogramPairs' onSubmit={handleSubmit}>
+          <div>
+            <h2>Histogram</h2>
+            <input placeholder='Label' value={state.inputs.histogramLabel} name='histogramLabel' onChange={handleInput} required /> <br /> 
+            <input placeholder='Value' value={state.inputs.histogramValue} name='histogramValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
+            <button className={state.submitBtnClass}>Submit</button>
+          </div>
+        </form>
+        : null }
+
+        { state.controls.ogive ?
+        <form id='ogive-form' data-name='ogivePairs' onSubmit={handleSubmit}>
+          <div>
+            <h2>Ogive</h2>
+            <input placeholder='Label' value={state.inputs.ogiveLabel} name='ogiveLabel' onChange={handleInput} required /> <br /> 
+            <input placeholder='Value' value={state.inputs.ogiveValue} name='ogiveValue' onChange={handleInput} required pattern="^[+]?([0-9]*(?:[\.][0-9]*)?|0*\.0*[0-9]*)$" /> <br />
+            <button className={state.submitBtnClass}>Submit</button>
+          </div>
+        </form>
+        : null }
+
+        { picked ?
+        <div>
+          <span className='clear-btn' onClick={handleBack}>Back</span>
+          <button className={state.nextBtnClass} onClick={handleNext}>Next</button>
+        </div>
+        : null }
+
+      </div>  
+      </section>
   )
-}
+  }
