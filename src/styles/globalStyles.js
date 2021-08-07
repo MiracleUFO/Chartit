@@ -36,8 +36,9 @@ export const GlobalStyles = createGlobalStyle`
 	.icon-container {
 		display: none;
 	}
-	.icon-mobile, .icon {
-		width: 85%;
+	.icon-mobile {
+		width: 100%;
+    height: 90%;
 	}
 	.icon {
 		display: none;
@@ -55,6 +56,10 @@ export const GlobalStyles = createGlobalStyle`
 		}
 		.icon-container {
 			width: 13vw;
+			height: 90%;
+		}
+		.dark-icon {
+			width: 12vw;
 		}
 	}
 
@@ -288,7 +293,7 @@ export const GlobalStyles = createGlobalStyle`
 		color: ${({theme}) => theme.mobileHeroTextColor};
 	}
 	#hero > section > h1 {
-		font-size: 2.25rem;
+		font-size: 2.47rem;
 		font-weight: 700;
 		line-height: 3.7rem;
 		letter-spacing: 1.2px;
@@ -301,7 +306,7 @@ export const GlobalStyles = createGlobalStyle`
 	#hero > section:first-of-type p {
 		font-family: 'Inter';
 		font-weight: 400;
-		font-size: 1.15rem;;
+		font-size: 1.17rem;;
 		line-height: 1.5rem;
 		letter-spacing: 1.2px;
 		width: 81vw;
@@ -365,13 +370,13 @@ export const GlobalStyles = createGlobalStyle`
 			display: block;
 			margin-top: 95px;
 			align-items: start;
-			margin-left: 2vw;
+			margin-left: ${({theme}) => theme.marginLeft};;
 			text-align: start;
 			width: 85%;
 			height: fit-content;
 		}
 		#hero > section > h1 {
-			font-size: 2.2rem;
+			font-size: 2.4rem;
 			font-weight: 800;
 			margin-bottom: 7px;
 		}
@@ -383,8 +388,8 @@ export const GlobalStyles = createGlobalStyle`
 			display: inline;
 		}
 		#hero > section:first-of-type p {
-			font-size: 1.1rem;
-			line-height: 1.7rem;
+			font-size: 1.22rem;
+			line-height: 2rem;
 			font-weight: 700;
 			width: 37rem;
 			margin-top: 7px;

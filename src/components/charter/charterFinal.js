@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Splide, SplideSlide} from '@splidejs/react-splide';
-//import { Chart } from "react-google-charts";
+import { Chart } from "react-google-charts";
 import sun from '../../imgs/sun.png';
 import preview from '../../imgs/preview.png';
 

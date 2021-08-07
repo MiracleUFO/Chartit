@@ -24,6 +24,7 @@ export const lightTheme = {
 	heroWidth: `revert`,
 	heroMargin: `0 0 0 2vw`,
 	navMargin: `revert`,
+	marginLeft: `2vw`
 }
 
 export const darkTheme = {
@@ -49,4 +50,5 @@ export const darkTheme = {
 	heroWidth: `90vw`,
 	heroMargin: `0 auto`,
 	navMargin: `0 2vw`,
+	marginLeft: `revert`
 }

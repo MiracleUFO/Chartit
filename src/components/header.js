@@ -10,7 +10,7 @@ let switchIcon = props.theme === 'light' ? switchOff : switchOn;
       <nav id='header'>
         {window.innerWidth >= 800 ?
         props.theme === 'dark' ? 
-        <NavLink to='/' className='icon-container'><img src={iconalt} alt='Chartit icon' className='icon' /></NavLink> :
+        <NavLink to='/'><img src={iconalt} alt='Chartit icon' className='icon icon-mobile dark-icon' /></NavLink> :
         <NavLink to='/' className='icon-container-mobile'><img src={icon} alt='Chartit icon' className='icon-mobile' /></NavLink> :
         <NavLink to='/' className='icon-container-mobile'><img src={icon} alt='Chartit icon' className='icon-mobile' /></NavLink>
         }
